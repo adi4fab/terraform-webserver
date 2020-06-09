@@ -36,6 +36,6 @@ resource "aws_instance" "secondweb" {
   user_data = "${file("webscript.sh")}"
 
   tags= {
-    Name= "WEBinstance23"
+    Name= "WEBinstance2"
   }
 }
