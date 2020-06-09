@@ -9,7 +9,7 @@ provider "aws" {
 terraform {
   backend "s3" {
     bucket = "terraform-bucket-aditya"
-    key    = "terraform"
+    key    = "terraform.tfstate"
     region = "eu-central-1"
   }
 }
@@ -23,6 +23,6 @@ resource "aws_instance" "web" {
   user_data = "${file("webscript.sh")}"
 
   tags= {
-    Name= "WEBinstancooouuuooe"
+    Name= "WEBinstance"
   }
 }
