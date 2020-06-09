@@ -23,6 +23,6 @@ resource "aws_instance" "web" {
   user_data = "${file("webscript.sh")}"
 
   tags= {
-    Name= "WEBBBinstance"
+    Name= "WEBBBBinstance"
   }
 }
