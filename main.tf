@@ -2,6 +2,8 @@
 
 provider "aws" {
   region     = "eu-central-1"
+  version = "~> 2.2"
+
 }
 
 ## configuring remote backend ##
@@ -14,26 +16,26 @@ terraform {
   }
 }
 
-## An ec2 instance resource ##
+## Two ec2 instance resource ##
 
 resource "aws_instance" "web" {
-  ami           = "ami-0a02ee601d742e89f"
-  instance_type = "t2.micro"
-  availability_zone = "eu-central-1a"
+  ami           = var.AMIid
+  instance_type = var.instancetype
+  availability_zone = var.az
   user_data = "${file("webscript.sh")}"
 
   tags= {
-    Name= "WEBinstance"
+    Name= "WEBinstance1"
   }
 }
 
-resource "aws_instance" "webb" {
-  ami           = "ami-0a02ee601d742e89f"
-  instance_type = "t2.micro"
-  availability_zone = "eu-central-1a"
+resource "aws_instance" "secondweb" {
+  ami           = var.AMIid
+  instance_type = var.instancetype
+  availability_zone = var.az
   user_data = "${file("webscript.sh")}"
 
   tags= {
-    Name= "WEBinstanceeeee"
+    Name= "WEBinstance2"
   }
 }
