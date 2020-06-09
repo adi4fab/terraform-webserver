@@ -26,3 +26,14 @@ resource "aws_instance" "web" {
     Name= "WEBinstance"
   }
 }
+
+resource "aws_instance" "webb" {
+  ami           = "ami-0a02ee601d742e89f"
+  instance_type = "t2.micro"
+  availability_zone = "eu-central-1a"
+  user_data = "${file("webscript.sh")}"
+
+  tags= {
+    Name= "WEBinstanceeeee"
+  }
+}
